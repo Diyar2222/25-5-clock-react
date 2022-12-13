@@ -7,9 +7,14 @@ function App() {
   const [timeLeft, setTimeLeft] = useState(25*60)
   const [isCounting, setIsCounting] = useState(false)
   const [timerName, setTimerName] = useState(true)
-  const minutes = padStart(Math.floor(timeLeft/60))
-  const seconds = padStart(Math.floor(timeLeft-minutes*60))
+  const minutes = getPadTime(Math.floor(timeLeft/60))
+  const seconds = getPadTime(Math.floor(timeLeft-minutes*60))
 
+  function getPadTime(time) {
+    return (
+      time.toString().padStart(2,"0")
+    )
+  }
   useEffect(() => {
     const interval = setInterval(() => {
         isCounting && setTimeLeft((time) => time-1)
