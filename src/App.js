@@ -1,5 +1,5 @@
 import React, {useState,useEffect } from "react"
-import Arrow from "react-arrow"
+import {HiArrowSmDown, HiArrowSmUp} from 'react-icons/hi'
 import padStart from "./getPadTime"
 function App() {
   const [breakLength, setBreakLength] = useState(5)
@@ -85,61 +85,26 @@ function App() {
         <div className="break-container">
           <div id="break-label">Break Length</div>
           <div className="break-buttons">
-            <Arrow
-            id="break-decrement"
-            style={{marginRight:"15px", cursor:"pointer"}}
-            direction = "down"
-            shaftWidth={10}
-            shaftLength={15}
-            headWidth={25}
-            headLength={10}
-            fill="white"
-            strokeWidth={2}
-            onClick={decreaseBreak}
-            />
+          <HiArrowSmDown className="arrow" id="break-decrement"
+          onClick={decreaseBreak}
+          style={{marginRight:"15px", cursor:"pointer"}}/>
             <div id="break-length">{breakLength}</div>
-            <Arrow
+            <HiArrowSmUp className="arrow" onClick={increaseBreak} 
             id="break-increment"
-            style={{marginLeft:"15px", cursor:"pointer"}}
-            direction = "up"
-            shaftWidth={10}
-            shaftLength={15}
-            headWidth={25}
-            headLength={10}
-            fill="white"
-            strokeWidth={2}
-            onClick={increaseBreak}
-            />
+            style={{marginLeft:"15px", cursor:"pointer"}}/>
           </div>
         </div>
         <div className="session-container">
           <div id="session-label">Session Length</div>
           <div className="session-buttons">
-          <Arrow
+            <HiArrowSmDown className="arrow" onClick={decreaseSession}
             id="session-decrement"
             style={{marginRight:"15px", cursor:"pointer"}}
-            direction = "down"
-            shaftWidth={10}
-            shaftLength={15}
-            headWidth={25}
-            headLength={10}
-            fill="white"
-            strokeWidth={2}
-            onClick={decreaseSession}
             />
             <div id="session-length">{sessionLength}</div>
-            <Arrow
+            <HiArrowSmUp className="arrow" onClick={increaseSession}
             id="session-increment"
-            style={{marginLeft:"15px", cursor:"pointer"}}
-            direction = "up"
-            shaftWidth={10}
-            shaftLength={15}
-            headWidth={25}
-            headLength={10}
-            fill="white"
-            strokeWidth={2}
-            onClick={increaseSession}
-            />
+            style={{marginLeft:"15px", cursor:"pointer"}}/>            
           </div>
         </div>
       </div>
